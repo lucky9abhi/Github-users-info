@@ -5,18 +5,21 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from './app.component';
-import { CircularComponent } from './circular/circular.component';
+import { GitusersComponent } from './gitusers/gitusers.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SupportComponent } from './support/support.component';
 import {GithubService} from "./services/github.service";
+import {MdButtonModule, MdCheckboxModule} from "@angular/material";
+import 'hammerjs';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
-  {path: 'circular', component:CircularComponent},
+  {path: 'gitusers', component:GitusersComponent},
   {path: 'contact', component:ContactComponent},
   {path: 'feedback', component:FeedbackComponent},
   {path: 'support', component:SupportComponent}
@@ -25,7 +28,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CircularComponent,
+    GitusersComponent,
     NavbarComponent,
     HomeComponent,
     ContactComponent,
@@ -36,7 +39,10 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MdButtonModule,
+    MdCheckboxModule,
+    BrowserAnimationsModule,
   ],
   providers: [GithubService],
   bootstrap: [AppComponent]

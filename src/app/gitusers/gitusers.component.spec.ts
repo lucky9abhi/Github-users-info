@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CircularComponent } from './circular.component';
+import { CircularComponent } from './gitusers.component';
 
 describe('CircularComponent', () => {
   let component: CircularComponent;

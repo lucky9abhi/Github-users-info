@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {GithubService} from "../services/github.service";
 
+
 @Component({
-  selector: 'app-circular',
-  templateUrl: './circular.component.html',
-  styleUrls: ['./circular.component.css'],
+  selector: 'app-gitusers',
+  templateUrl: './gitusers.component.html',
+  styleUrls: ['./gitusers.component.css'],
   providers:[GithubService]
 })
-export class CircularComponent implements OnInit {
+export class GitusersComponent implements OnInit {
 
-  public searchText ;
+  public searchText;
+  public searchResult;
+  public searchCount;
 
   constructor(private githubService: GithubService) {
   }
@@ -24,7 +27,8 @@ export class CircularComponent implements OnInit {
   getUsers(){
     this.githubService.getUser(this.searchText).subscribe(
       res => {
-        console.log(res);
+        this.searchResult = res;
+        this.searchCount = res.total_count;
       }
     );
   }
